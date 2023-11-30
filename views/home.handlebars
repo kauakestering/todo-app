@@ -1,11 +1,11 @@
 <main>
     <section class="tarefas">
-        <div class="tarefa">
+        {{#each tarefas}}
+            <div class="tarefa">
             <form action="">
                 <div class="tarefa">
-                    <input type="radio" id="tarefa-1">
-                <label for="tarefa-1">Completar curso</label>
-                
+                    <input type="checkbox" id="tarefa-{{this.id}}">
+                <label for="tarefa-{{this.id}}">{{this.descricao}}</label>
                 
                 </div>
                 
@@ -14,6 +14,7 @@
                 </button> 
             </form>
         </div>
+        {{/each}}
         <div class="informacoes">
             <p>5 Tarefas ativas</p>
             <div class="botao">
