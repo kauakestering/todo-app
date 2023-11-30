@@ -13,12 +13,14 @@
     <title>Todo app</title>
 
 </head>
-<body class="dark">
+<body class="">
     <div>
         <header>
         <div>
             <h1>ToDo</h1>
-            <img src="/public/imagens/moon-icon.png" alt=".">
+            <button class="tema-button" onclick="alterarTema()">
+                <img src="/public/imagens/moon-icon.png" alt=".">
+            </button>
         </div>
 
         <form action="">
@@ -307,6 +309,52 @@ main{
     
 
 </style>
+
+<script>
+function alterarTema() {
+    const tema = localStorage.getItem("tema")
+    const body = document.querySelector("body")
+    const button = document.querySelector(".tema-button")
+
+    if (tema) {
+        if (tema === "light") {
+            let novoTema
+            novoTema = "dark"
+            button.innerHTML = `"/public/imagens/sun-icon.png"`
+            body.classList.remove("light")
+            body.classList.add("dark")
+        } else {
+            novoTema = "light"
+            button.innerHTML = `"/public/imagens/moon-icon.png"`
+            body.classList.remove("dark")
+            body.classList.add("light")
+        }
+    
+        localStorage.setItem("tema", novoTema)
+        return
+    
+    }
+        localStorage.setItem("tema", "dark")
+        body.classList.add("dark")
+
+}
+
+function verificarTema(){
+    const tema = localStorage.getItem("tema")
+    const body = document.querySelector("body")
+    if (tema === "dark"){
+        body.classList.add("dark")
+        button.innerHTML = `"/public/imagens/sun-icon.png"`
+    }else {
+        body.classList.add("light")
+        `"/public/imagens/moon-icon.png"`
+    }
+
+    }
+verificarTema()
+</script>
+
+
 
 
 </body>
